@@ -27,7 +27,7 @@ import org.bronsp.maven.plugin.utils.Xml22BeanUtil;
  * <pre>
  * 生成DAO代码
  * 命令：
- * $mvn bronsp:gendao -Dmodel-file=model-org.xml 
+ * $mvn bronsp:gen-dao -Dmodel-file=model-org.xml 
  * 
  * 约定模型文件存放在当前工程 model路径下， 如： bronsp-service-org/model/model-org.xml；
  * 
@@ -36,7 +36,7 @@ import org.bronsp.maven.plugin.utils.Xml22BeanUtil;
  * @author megapro
  *
  */
-@Mojo( name = "gendao" )
+@Mojo( name = "gen-dao" )
 public class GenDaoMojo extends AbstractMojo {
 	
 	/**
