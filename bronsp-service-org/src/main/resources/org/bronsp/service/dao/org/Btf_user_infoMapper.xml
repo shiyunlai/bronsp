@@ -1,0 +1,371 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC 
+	"-//mybatis.org//DTD Mapper 3.0//EN" 
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+	
+<mapper namespace="org.bronsp.service.dao.org.Btf_user_infoMapper">
+  
+  	<insert id="insert" parameterType="org.fone.bronsp.org.model.po.Btf_user_info">
+	    INSERT INTO btf_user_info (id
+  ,user_code
+  ,emp_code
+  ,user_name
+  ,user_type
+  ,user_level
+  ,sub_type
+  ,login_type
+  ,org_code
+  ,core_user_flag
+  ,user_status
+  ,work_status
+  ,login_time
+  ,logout_time
+  ,login_ip
+  ,user_password
+  ,auth_mode
+  ,pw_status
+  ,pw_cnt
+  ,lock_time
+  ,unlock_time
+  ,chg_date
+  ,chg_interval
+  ,inval_date
+  ,eff_date
+  ,lose_date
+  ,eff_time_range
+  ,auth_level
+  ,cash_flag
+  ,mc_flag
+  )
+	    VALUES (#{id,jdbcType=VARCHAR},
+  #{user_code,jdbcType=VARCHAR},
+  #{emp_code,jdbcType=VARCHAR},
+  #{user_name,jdbcType=VARCHAR},
+  #{user_type,jdbcType=VARCHAR},
+  #{user_level,jdbcType=VARCHAR},
+  #{sub_type,jdbcType=VARCHAR},
+  #{login_type,jdbcType=VARCHAR},
+  #{org_code,jdbcType=VARCHAR},
+  #{core_user_flag,jdbcType=VARCHAR},
+  #{user_status,jdbcType=VARCHAR},
+  #{work_status,jdbcType=VARCHAR},
+  #{login_time,jdbcType=TIMESTAMP},
+  #{logout_time,jdbcType=TIMESTAMP},
+  #{login_ip,jdbcType=VARCHAR},
+  #{user_password,jdbcType=VARCHAR},
+  #{auth_mode,jdbcType=VARCHAR},
+  #{pw_status,jdbcType=VARCHAR},
+  #{pw_cnt,jdbcType=INTEGER},
+  #{lock_time,jdbcType=TIMESTAMP},
+  #{unlock_time,jdbcType=TIMESTAMP},
+  #{chg_date,jdbcType=TIMESTAMP},
+  #{chg_interval,jdbcType=INTEGER},
+  #{inval_date,jdbcType=TIMESTAMP},
+  #{eff_date,jdbcType=TIMESTAMP},
+  #{lose_date,jdbcType=TIMESTAMP},
+  #{eff_time_range,jdbcType=VARCHAR},
+  #{auth_level,jdbcType=VARCHAR},
+  #{cash_flag,jdbcType=VARCHAR},
+  #{mc_flag,jdbcType=VARCHAR}
+  )
+ 	</insert>
+ 	
+ 	<update id="update" parameterType="org.fone.bronsp.org.model.po.Btf_user_info">
+    	UPDATE btf_user_info 
+	    <set>
+		<if test="id != null" >
+        id = #{id,jdbcType=VARCHAR},
+      </if>
+		<if test="user_code != null" >
+        user_code = #{user_code,jdbcType=VARCHAR},
+      </if>
+		<if test="emp_code != null" >
+        emp_code = #{emp_code,jdbcType=VARCHAR},
+      </if>
+		<if test="user_name != null" >
+        user_name = #{user_name,jdbcType=VARCHAR},
+      </if>
+		<if test="user_type != null" >
+        user_type = #{user_type,jdbcType=VARCHAR},
+      </if>
+		<if test="user_level != null" >
+        user_level = #{user_level,jdbcType=VARCHAR},
+      </if>
+		<if test="sub_type != null" >
+        sub_type = #{sub_type,jdbcType=VARCHAR},
+      </if>
+		<if test="login_type != null" >
+        login_type = #{login_type,jdbcType=VARCHAR},
+      </if>
+		<if test="org_code != null" >
+        org_code = #{org_code,jdbcType=VARCHAR},
+      </if>
+		<if test="core_user_flag != null" >
+        core_user_flag = #{core_user_flag,jdbcType=VARCHAR},
+      </if>
+		<if test="user_status != null" >
+        user_status = #{user_status,jdbcType=VARCHAR},
+      </if>
+		<if test="work_status != null" >
+        work_status = #{work_status,jdbcType=VARCHAR},
+      </if>
+		<if test="login_time != null" >
+        login_time = #{login_time,jdbcType=TIMESTAMP},
+      </if>
+		<if test="logout_time != null" >
+        logout_time = #{logout_time,jdbcType=TIMESTAMP},
+      </if>
+		<if test="login_ip != null" >
+        login_ip = #{login_ip,jdbcType=VARCHAR},
+      </if>
+		<if test="user_password != null" >
+        user_password = #{user_password,jdbcType=VARCHAR},
+      </if>
+		<if test="auth_mode != null" >
+        auth_mode = #{auth_mode,jdbcType=VARCHAR},
+      </if>
+		<if test="pw_status != null" >
+        pw_status = #{pw_status,jdbcType=VARCHAR},
+      </if>
+		<if test="pw_cnt != null" >
+        pw_cnt = #{pw_cnt,jdbcType=INTEGER},
+      </if>
+		<if test="lock_time != null" >
+        lock_time = #{lock_time,jdbcType=TIMESTAMP},
+      </if>
+		<if test="unlock_time != null" >
+        unlock_time = #{unlock_time,jdbcType=TIMESTAMP},
+      </if>
+		<if test="chg_date != null" >
+        chg_date = #{chg_date,jdbcType=TIMESTAMP},
+      </if>
+		<if test="chg_interval != null" >
+        chg_interval = #{chg_interval,jdbcType=INTEGER},
+      </if>
+		<if test="inval_date != null" >
+        inval_date = #{inval_date,jdbcType=TIMESTAMP},
+      </if>
+		<if test="eff_date != null" >
+        eff_date = #{eff_date,jdbcType=TIMESTAMP},
+      </if>
+		<if test="lose_date != null" >
+        lose_date = #{lose_date,jdbcType=TIMESTAMP},
+      </if>
+		<if test="eff_time_range != null" >
+        eff_time_range = #{eff_time_range,jdbcType=VARCHAR},
+      </if>
+		<if test="auth_level != null" >
+        auth_level = #{auth_level,jdbcType=VARCHAR},
+      </if>
+		<if test="cash_flag != null" >
+        cash_flag = #{cash_flag,jdbcType=VARCHAR},
+      </if>
+		<if test="mc_flag != null" >
+        mc_flag = #{mc_flag,jdbcType=VARCHAR},
+      </if>
+	    </set>
+	    WHERE 1=1 and id = #{id}
+	    
+ 	</update>
+ 	
+ 	<update id="updateForce" parameterType="org.fone.bronsp.org.model.po.Btf_user_info">
+    	UPDATE btf_user_info 
+	    <set>
+        id = #{id,jdbcType=VARCHAR},
+        user_code = #{user_code,jdbcType=VARCHAR},
+        emp_code = #{emp_code,jdbcType=VARCHAR},
+        user_name = #{user_name,jdbcType=VARCHAR},
+        user_type = #{user_type,jdbcType=VARCHAR},
+        user_level = #{user_level,jdbcType=VARCHAR},
+        sub_type = #{sub_type,jdbcType=VARCHAR},
+        login_type = #{login_type,jdbcType=VARCHAR},
+        org_code = #{org_code,jdbcType=VARCHAR},
+        core_user_flag = #{core_user_flag,jdbcType=VARCHAR},
+        user_status = #{user_status,jdbcType=VARCHAR},
+        work_status = #{work_status,jdbcType=VARCHAR},
+        login_time = #{login_time,jdbcType=TIMESTAMP},
+        logout_time = #{logout_time,jdbcType=TIMESTAMP},
+        login_ip = #{login_ip,jdbcType=VARCHAR},
+        user_password = #{user_password,jdbcType=VARCHAR},
+        auth_mode = #{auth_mode,jdbcType=VARCHAR},
+        pw_status = #{pw_status,jdbcType=VARCHAR},
+        pw_cnt = #{pw_cnt,jdbcType=INTEGER},
+        lock_time = #{lock_time,jdbcType=TIMESTAMP},
+        unlock_time = #{unlock_time,jdbcType=TIMESTAMP},
+        chg_date = #{chg_date,jdbcType=TIMESTAMP},
+        chg_interval = #{chg_interval,jdbcType=INTEGER},
+        inval_date = #{inval_date,jdbcType=TIMESTAMP},
+        eff_date = #{eff_date,jdbcType=TIMESTAMP},
+        lose_date = #{lose_date,jdbcType=TIMESTAMP},
+        eff_time_range = #{eff_time_range,jdbcType=VARCHAR},
+        auth_level = #{auth_level,jdbcType=VARCHAR},
+        cash_flag = #{cash_flag,jdbcType=VARCHAR},
+        mc_flag = #{mc_flag,jdbcType=VARCHAR},
+	    </set>
+	    WHERE 1=1 and id = #{id}
+ 	</update>
+ 	 
+    <delete id="delete" parameterType="java.lang.String">
+	  	delete from btf_user_info where 1=1 and id = #{id}
+	</delete>
+	
+	<delete id="deleteByCondition" parameterType="org.bronsp.core.WhereCondition">
+	  	delete from btf_user_info <include refid="Where_Clause" />
+	</delete>
+	
+	 <update id="updateByCondition" parameterType="map">
+    	UPDATE btf_user_info 
+	   <set>
+		<if test="domain.id != null" >
+        id = #{domain.id,jdbcType=VARCHAR},
+      </if>
+		<if test="domain.user_code != null" >
+        user_code = #{domain.user_code,jdbcType=VARCHAR},
+      </if>
+		<if test="domain.emp_code != null" >
+        emp_code = #{domain.emp_code,jdbcType=VARCHAR},
+      </if>
+		<if test="domain.user_name != null" >
+        user_name = #{domain.user_name,jdbcType=VARCHAR},
+      </if>
+		<if test="domain.user_type != null" >
+        user_type = #{domain.user_type,jdbcType=VARCHAR},
+      </if>
+		<if test="domain.user_level != null" >
+        user_level = #{domain.user_level,jdbcType=VARCHAR},
+      </if>
+		<if test="domain.sub_type != null" >
+        sub_type = #{domain.sub_type,jdbcType=VARCHAR},
+      </if>
+		<if test="domain.login_type != null" >
+        login_type = #{domain.login_type,jdbcType=VARCHAR},
+      </if>
+		<if test="domain.org_code != null" >
+        org_code = #{domain.org_code,jdbcType=VARCHAR},
+      </if>
+		<if test="domain.core_user_flag != null" >
+        core_user_flag = #{domain.core_user_flag,jdbcType=VARCHAR},
+      </if>
+		<if test="domain.user_status != null" >
+        user_status = #{domain.user_status,jdbcType=VARCHAR},
+      </if>
+		<if test="domain.work_status != null" >
+        work_status = #{domain.work_status,jdbcType=VARCHAR},
+      </if>
+		<if test="domain.login_time != null" >
+        login_time = #{domain.login_time,jdbcType=TIMESTAMP},
+      </if>
+		<if test="domain.logout_time != null" >
+        logout_time = #{domain.logout_time,jdbcType=TIMESTAMP},
+      </if>
+		<if test="domain.login_ip != null" >
+        login_ip = #{domain.login_ip,jdbcType=VARCHAR},
+      </if>
+		<if test="domain.user_password != null" >
+        user_password = #{domain.user_password,jdbcType=VARCHAR},
+      </if>
+		<if test="domain.auth_mode != null" >
+        auth_mode = #{domain.auth_mode,jdbcType=VARCHAR},
+      </if>
+		<if test="domain.pw_status != null" >
+        pw_status = #{domain.pw_status,jdbcType=VARCHAR},
+      </if>
+		<if test="domain.pw_cnt != null" >
+        pw_cnt = #{domain.pw_cnt,jdbcType=INTEGER},
+      </if>
+		<if test="domain.lock_time != null" >
+        lock_time = #{domain.lock_time,jdbcType=TIMESTAMP},
+      </if>
+		<if test="domain.unlock_time != null" >
+        unlock_time = #{domain.unlock_time,jdbcType=TIMESTAMP},
+      </if>
+		<if test="domain.chg_date != null" >
+        chg_date = #{domain.chg_date,jdbcType=TIMESTAMP},
+      </if>
+		<if test="domain.chg_interval != null" >
+        chg_interval = #{domain.chg_interval,jdbcType=INTEGER},
+      </if>
+		<if test="domain.inval_date != null" >
+        inval_date = #{domain.inval_date,jdbcType=TIMESTAMP},
+      </if>
+		<if test="domain.eff_date != null" >
+        eff_date = #{domain.eff_date,jdbcType=TIMESTAMP},
+      </if>
+		<if test="domain.lose_date != null" >
+        lose_date = #{domain.lose_date,jdbcType=TIMESTAMP},
+      </if>
+		<if test="domain.eff_time_range != null" >
+        eff_time_range = #{domain.eff_time_range,jdbcType=VARCHAR},
+      </if>
+		<if test="domain.auth_level != null" >
+        auth_level = #{domain.auth_level,jdbcType=VARCHAR},
+      </if>
+		<if test="domain.cash_flag != null" >
+        cash_flag = #{domain.cash_flag,jdbcType=VARCHAR},
+      </if>
+		<if test="domain.mc_flag != null" >
+        mc_flag = #{domain.mc_flag,jdbcType=VARCHAR},
+      </if>
+	    </set>
+	   <where>${wc.condition}</where>
+ 	</update>
+	 
+	<select id="loadById" parameterType="String" resultType="org.fone.bronsp.org.model.po.Btf_user_info">
+		select <include refid="Base_Column_List"/> from btf_user_info where 1=1 and id = #{id}
+	</select>
+	
+    <select id="query" resultType="org.fone.bronsp.org.model.po.Btf_user_info" parameterType="org.bronsp.core.WhereCondition" >
+    	<if test="length > 0 and url == 'oracle'" >
+    	select <include refid="Base_Column_List" /> from
+   			(select a.*,rownum row_num from
+      			(</if>
+      			select <include refid="Base_Column_List" /> from btf_user_info <include refid="Where_Clause" />
+        			<if test="orderBy != null" >${orderBy}</if>
+        			<if test="length > 0 and url == 'mysql'" >LIMIT ${offset}, ${length}</if>
+        		<if test="length > 0 and url == 'oracle'" >) a
+   			) b 
+		where b.row_num between ${offset} and ${length}</if>
+    
+  	</select>
+  
+   	<select id="count" resultType="int" parameterType="org.bronsp.core.WhereCondition" >
+	    select count(*) from btf_user_info <include refid="Where_Clause"/>
+  	</select>
+  
+	<sql id="Where_Clause">
+	    <if test="condition != null"><where>${condition}</where></if> 
+	</sql>
+  
+	<sql id="Base_Column_List" >
+	  id
+,user_code
+,emp_code
+,user_name
+,user_type
+,user_level
+,sub_type
+,login_type
+,org_code
+,core_user_flag
+,user_status
+,work_status
+,login_time
+,logout_time
+,login_ip
+,user_password
+,auth_mode
+,pw_status
+,pw_cnt
+,lock_time
+,unlock_time
+,chg_date
+,chg_interval
+,inval_date
+,eff_date
+,lose_date
+,eff_time_range
+,auth_level
+,cash_flag
+,mc_flag
+	</sql>
+</mapper>

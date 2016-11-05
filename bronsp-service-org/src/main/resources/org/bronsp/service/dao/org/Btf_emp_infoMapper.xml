@@ -1,0 +1,371 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC 
+	"-//mybatis.org//DTD Mapper 3.0//EN" 
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+	
+<mapper namespace="org.bronsp.service.dao.org.Btf_emp_infoMapper">
+  
+  	<insert id="insert" parameterType="org.fone.bronsp.org.model.po.Btf_emp_info">
+	    INSERT INTO btf_emp_info (id
+  ,emp_code
+  ,org_code
+  ,emp_type
+  ,emp_status
+  ,emp_name
+  ,emp_logo
+  ,emp_ename
+  ,party
+  ,gender
+  ,birthdate
+  ,position
+  ,card_type
+  ,card_no
+  ,in_date
+  ,out_date
+  ,o_tel
+  ,o_address
+  ,o_zipcode
+  ,o_email
+  ,o_fzxno
+  ,h_tel
+  ,h_address
+  ,h_zipcode
+  ,phone
+  ,qq_no
+  ,msn
+  ,emp_desc
+  ,work_exp
+  ,remark
+  )
+	    VALUES (#{id,jdbcType=VARCHAR},
+  #{emp_code,jdbcType=VARCHAR},
+  #{org_code,jdbcType=VARCHAR},
+  #{emp_type,jdbcType=VARCHAR},
+  #{emp_status,jdbcType=VARCHAR},
+  #{emp_name,jdbcType=VARCHAR},
+  #{emp_logo,jdbcType=VARCHAR},
+  #{emp_ename,jdbcType=VARCHAR},
+  #{party,jdbcType=VARCHAR},
+  #{gender,jdbcType=VARCHAR},
+  #{birthdate,jdbcType=VARCHAR},
+  #{position,jdbcType=VARCHAR},
+  #{card_type,jdbcType=VARCHAR},
+  #{card_no,jdbcType=VARCHAR},
+  #{in_date,jdbcType=VARCHAR},
+  #{out_date,jdbcType=VARCHAR},
+  #{o_tel,jdbcType=VARCHAR},
+  #{o_address,jdbcType=VARCHAR},
+  #{o_zipcode,jdbcType=VARCHAR},
+  #{o_email,jdbcType=VARCHAR},
+  #{o_fzxno,jdbcType=VARCHAR},
+  #{h_tel,jdbcType=VARCHAR},
+  #{h_address,jdbcType=VARCHAR},
+  #{h_zipcode,jdbcType=VARCHAR},
+  #{phone,jdbcType=VARCHAR},
+  #{qq_no,jdbcType=VARCHAR},
+  #{msn,jdbcType=VARCHAR},
+  #{emp_desc,jdbcType=VARCHAR},
+  #{work_exp,jdbcType=VARCHAR},
+  #{remark,jdbcType=VARCHAR}
+  )
+ 	</insert>
+ 	
+ 	<update id="update" parameterType="org.fone.bronsp.org.model.po.Btf_emp_info">
+    	UPDATE btf_emp_info 
+	    <set>
+		<if test="id != null" >
+        id = #{id,jdbcType=VARCHAR},
+      </if>
+		<if test="emp_code != null" >
+        emp_code = #{emp_code,jdbcType=VARCHAR},
+      </if>
+		<if test="org_code != null" >
+        org_code = #{org_code,jdbcType=VARCHAR},
+      </if>
+		<if test="emp_type != null" >
+        emp_type = #{emp_type,jdbcType=VARCHAR},
+      </if>
+		<if test="emp_status != null" >
+        emp_status = #{emp_status,jdbcType=VARCHAR},
+      </if>
+		<if test="emp_name != null" >
+        emp_name = #{emp_name,jdbcType=VARCHAR},
+      </if>
+		<if test="emp_logo != null" >
+        emp_logo = #{emp_logo,jdbcType=VARCHAR},
+      </if>
+		<if test="emp_ename != null" >
+        emp_ename = #{emp_ename,jdbcType=VARCHAR},
+      </if>
+		<if test="party != null" >
+        party = #{party,jdbcType=VARCHAR},
+      </if>
+		<if test="gender != null" >
+        gender = #{gender,jdbcType=VARCHAR},
+      </if>
+		<if test="birthdate != null" >
+        birthdate = #{birthdate,jdbcType=VARCHAR},
+      </if>
+		<if test="position != null" >
+        position = #{position,jdbcType=VARCHAR},
+      </if>
+		<if test="card_type != null" >
+        card_type = #{card_type,jdbcType=VARCHAR},
+      </if>
+		<if test="card_no != null" >
+        card_no = #{card_no,jdbcType=VARCHAR},
+      </if>
+		<if test="in_date != null" >
+        in_date = #{in_date,jdbcType=VARCHAR},
+      </if>
+		<if test="out_date != null" >
+        out_date = #{out_date,jdbcType=VARCHAR},
+      </if>
+		<if test="o_tel != null" >
+        o_tel = #{o_tel,jdbcType=VARCHAR},
+      </if>
+		<if test="o_address != null" >
+        o_address = #{o_address,jdbcType=VARCHAR},
+      </if>
+		<if test="o_zipcode != null" >
+        o_zipcode = #{o_zipcode,jdbcType=VARCHAR},
+      </if>
+		<if test="o_email != null" >
+        o_email = #{o_email,jdbcType=VARCHAR},
+      </if>
+		<if test="o_fzxno != null" >
+        o_fzxno = #{o_fzxno,jdbcType=VARCHAR},
+      </if>
+		<if test="h_tel != null" >
+        h_tel = #{h_tel,jdbcType=VARCHAR},
+      </if>
+		<if test="h_address != null" >
+        h_address = #{h_address,jdbcType=VARCHAR},
+      </if>
+		<if test="h_zipcode != null" >
+        h_zipcode = #{h_zipcode,jdbcType=VARCHAR},
+      </if>
+		<if test="phone != null" >
+        phone = #{phone,jdbcType=VARCHAR},
+      </if>
+		<if test="qq_no != null" >
+        qq_no = #{qq_no,jdbcType=VARCHAR},
+      </if>
+		<if test="msn != null" >
+        msn = #{msn,jdbcType=VARCHAR},
+      </if>
+		<if test="emp_desc != null" >
+        emp_desc = #{emp_desc,jdbcType=VARCHAR},
+      </if>
+		<if test="work_exp != null" >
+        work_exp = #{work_exp,jdbcType=VARCHAR},
+      </if>
+		<if test="remark != null" >
+        remark = #{remark,jdbcType=VARCHAR},
+      </if>
+	    </set>
+	    WHERE 1=1 and id = #{id}
+	    
+ 	</update>
+ 	
+ 	<update id="updateForce" parameterType="org.fone.bronsp.org.model.po.Btf_emp_info">
+    	UPDATE btf_emp_info 
+	    <set>
+        id = #{id,jdbcType=VARCHAR},
+        emp_code = #{emp_code,jdbcType=VARCHAR},
+        org_code = #{org_code,jdbcType=VARCHAR},
+        emp_type = #{emp_type,jdbcType=VARCHAR},
+        emp_status = #{emp_status,jdbcType=VARCHAR},
+        emp_name = #{emp_name,jdbcType=VARCHAR},
+        emp_logo = #{emp_logo,jdbcType=VARCHAR},
+        emp_ename = #{emp_ename,jdbcType=VARCHAR},
+        party = #{party,jdbcType=VARCHAR},
+        gender = #{gender,jdbcType=VARCHAR},
+        birthdate = #{birthdate,jdbcType=VARCHAR},
+        position = #{position,jdbcType=VARCHAR},
+        card_type = #{card_type,jdbcType=VARCHAR},
+        card_no = #{card_no,jdbcType=VARCHAR},
+        in_date = #{in_date,jdbcType=VARCHAR},
+        out_date = #{out_date,jdbcType=VARCHAR},
+        o_tel = #{o_tel,jdbcType=VARCHAR},
+        o_address = #{o_address,jdbcType=VARCHAR},
+        o_zipcode = #{o_zipcode,jdbcType=VARCHAR},
+        o_email = #{o_email,jdbcType=VARCHAR},
+        o_fzxno = #{o_fzxno,jdbcType=VARCHAR},
+        h_tel = #{h_tel,jdbcType=VARCHAR},
+        h_address = #{h_address,jdbcType=VARCHAR},
+        h_zipcode = #{h_zipcode,jdbcType=VARCHAR},
+        phone = #{phone,jdbcType=VARCHAR},
+        qq_no = #{qq_no,jdbcType=VARCHAR},
+        msn = #{msn,jdbcType=VARCHAR},
+        emp_desc = #{emp_desc,jdbcType=VARCHAR},
+        work_exp = #{work_exp,jdbcType=VARCHAR},
+        remark = #{remark,jdbcType=VARCHAR},
+	    </set>
+	    WHERE 1=1 and id = #{id}
+ 	</update>
+ 	 
+    <delete id="delete" parameterType="java.lang.String">
+	  	delete from btf_emp_info where 1=1 and id = #{id}
+	</delete>
+	
+	<delete id="deleteByCondition" parameterType="org.bronsp.core.WhereCondition">
+	  	delete from btf_emp_info <include refid="Where_Clause" />
+	</delete>
+	
+	 <update id="updateByCondition" parameterType="map">
+    	UPDATE btf_emp_info 
+	   <set>
+		<if test="domain.id != null" >
+        id = #{domain.id,jdbcType=VARCHAR},
+      </if>
+		<if test="domain.emp_code != null" >
+        emp_code = #{domain.emp_code,jdbcType=VARCHAR},
+      </if>
+		<if test="domain.org_code != null" >
+        org_code = #{domain.org_code,jdbcType=VARCHAR},
+      </if>
+		<if test="domain.emp_type != null" >
+        emp_type = #{domain.emp_type,jdbcType=VARCHAR},
+      </if>
+		<if test="domain.emp_status != null" >
+        emp_status = #{domain.emp_status,jdbcType=VARCHAR},
+      </if>
+		<if test="domain.emp_name != null" >
+        emp_name = #{domain.emp_name,jdbcType=VARCHAR},
+      </if>
+		<if test="domain.emp_logo != null" >
+        emp_logo = #{domain.emp_logo,jdbcType=VARCHAR},
+      </if>
+		<if test="domain.emp_ename != null" >
+        emp_ename = #{domain.emp_ename,jdbcType=VARCHAR},
+      </if>
+		<if test="domain.party != null" >
+        party = #{domain.party,jdbcType=VARCHAR},
+      </if>
+		<if test="domain.gender != null" >
+        gender = #{domain.gender,jdbcType=VARCHAR},
+      </if>
+		<if test="domain.birthdate != null" >
+        birthdate = #{domain.birthdate,jdbcType=VARCHAR},
+      </if>
+		<if test="domain.position != null" >
+        position = #{domain.position,jdbcType=VARCHAR},
+      </if>
+		<if test="domain.card_type != null" >
+        card_type = #{domain.card_type,jdbcType=VARCHAR},
+      </if>
+		<if test="domain.card_no != null" >
+        card_no = #{domain.card_no,jdbcType=VARCHAR},
+      </if>
+		<if test="domain.in_date != null" >
+        in_date = #{domain.in_date,jdbcType=VARCHAR},
+      </if>
+		<if test="domain.out_date != null" >
+        out_date = #{domain.out_date,jdbcType=VARCHAR},
+      </if>
+		<if test="domain.o_tel != null" >
+        o_tel = #{domain.o_tel,jdbcType=VARCHAR},
+      </if>
+		<if test="domain.o_address != null" >
+        o_address = #{domain.o_address,jdbcType=VARCHAR},
+      </if>
+		<if test="domain.o_zipcode != null" >
+        o_zipcode = #{domain.o_zipcode,jdbcType=VARCHAR},
+      </if>
+		<if test="domain.o_email != null" >
+        o_email = #{domain.o_email,jdbcType=VARCHAR},
+      </if>
+		<if test="domain.o_fzxno != null" >
+        o_fzxno = #{domain.o_fzxno,jdbcType=VARCHAR},
+      </if>
+		<if test="domain.h_tel != null" >
+        h_tel = #{domain.h_tel,jdbcType=VARCHAR},
+      </if>
+		<if test="domain.h_address != null" >
+        h_address = #{domain.h_address,jdbcType=VARCHAR},
+      </if>
+		<if test="domain.h_zipcode != null" >
+        h_zipcode = #{domain.h_zipcode,jdbcType=VARCHAR},
+      </if>
+		<if test="domain.phone != null" >
+        phone = #{domain.phone,jdbcType=VARCHAR},
+      </if>
+		<if test="domain.qq_no != null" >
+        qq_no = #{domain.qq_no,jdbcType=VARCHAR},
+      </if>
+		<if test="domain.msn != null" >
+        msn = #{domain.msn,jdbcType=VARCHAR},
+      </if>
+		<if test="domain.emp_desc != null" >
+        emp_desc = #{domain.emp_desc,jdbcType=VARCHAR},
+      </if>
+		<if test="domain.work_exp != null" >
+        work_exp = #{domain.work_exp,jdbcType=VARCHAR},
+      </if>
+		<if test="domain.remark != null" >
+        remark = #{domain.remark,jdbcType=VARCHAR},
+      </if>
+	    </set>
+	   <where>${wc.condition}</where>
+ 	</update>
+	 
+	<select id="loadById" parameterType="String" resultType="org.fone.bronsp.org.model.po.Btf_emp_info">
+		select <include refid="Base_Column_List"/> from btf_emp_info where 1=1 and id = #{id}
+	</select>
+	
+    <select id="query" resultType="org.fone.bronsp.org.model.po.Btf_emp_info" parameterType="org.bronsp.core.WhereCondition" >
+    	<if test="length > 0 and url == 'oracle'" >
+    	select <include refid="Base_Column_List" /> from
+   			(select a.*,rownum row_num from
+      			(</if>
+      			select <include refid="Base_Column_List" /> from btf_emp_info <include refid="Where_Clause" />
+        			<if test="orderBy != null" >${orderBy}</if>
+        			<if test="length > 0 and url == 'mysql'" >LIMIT ${offset}, ${length}</if>
+        		<if test="length > 0 and url == 'oracle'" >) a
+   			) b 
+		where b.row_num between ${offset} and ${length}</if>
+    
+  	</select>
+  
+   	<select id="count" resultType="int" parameterType="org.bronsp.core.WhereCondition" >
+	    select count(*) from btf_emp_info <include refid="Where_Clause"/>
+  	</select>
+  
+	<sql id="Where_Clause">
+	    <if test="condition != null"><where>${condition}</where></if> 
+	</sql>
+  
+	<sql id="Base_Column_List" >
+	  id
+,emp_code
+,org_code
+,emp_type
+,emp_status
+,emp_name
+,emp_logo
+,emp_ename
+,party
+,gender
+,birthdate
+,position
+,card_type
+,card_no
+,in_date
+,out_date
+,o_tel
+,o_address
+,o_zipcode
+,o_email
+,o_fzxno
+,h_tel
+,h_address
+,h_zipcode
+,phone
+,qq_no
+,msn
+,emp_desc
+,work_exp
+,remark
+	</sql>
+</mapper>

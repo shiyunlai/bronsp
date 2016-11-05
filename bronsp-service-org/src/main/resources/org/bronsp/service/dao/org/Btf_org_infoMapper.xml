@@ -1,0 +1,421 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC 
+	"-//mybatis.org//DTD Mapper 3.0//EN" 
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+	
+<mapper namespace="org.bronsp.service.dao.org.Btf_org_infoMapper">
+  
+  	<insert id="insert" parameterType="org.fone.bronsp.org.model.po.Btf_org_info">
+	    INSERT INTO btf_org_info (id
+  ,org_code
+  ,org_name
+  ,org_ename
+  ,org_type
+  ,org_degree
+  ,org_status
+  ,org_work_status
+  ,logout_time
+  ,login_time
+  ,valid_flag
+  ,par_org_code
+  ,org_seq
+  ,org_addr
+  ,org_zipcode
+  ,org_email
+  ,org_linkman
+  ,org_linktel
+  ,LINKMAN
+  ,ORG_MANAGER
+  ,auth_user_list
+  ,START_DATE
+  ,END_DATE
+  ,AREA
+  ,OPEN_TIME
+  ,CLOSE_TIME
+  ,MARK
+  ,PEN_DATE
+  ,ORG_ACCT_DATE
+  ,OP_FLAG
+  ,TD_FLAG
+  ,FOR_TYPE
+  ,CASH_USER_CNT
+  ,MCCTL_USER_CNT
+  ,SIGN_OUT_FLAG
+  )
+	    VALUES (#{id,jdbcType=VARCHAR},
+  #{org_code,jdbcType=VARCHAR},
+  #{org_name,jdbcType=VARCHAR},
+  #{org_ename,jdbcType=VARCHAR},
+  #{org_type,jdbcType=VARCHAR},
+  #{org_degree,jdbcType=VARCHAR},
+  #{org_status,jdbcType=VARCHAR},
+  #{org_work_status,jdbcType=VARCHAR},
+  #{logout_time,jdbcType=TIMESTAMP},
+  #{login_time,jdbcType=TIMESTAMP},
+  #{valid_flag,jdbcType=VARCHAR},
+  #{par_org_code,jdbcType=VARCHAR},
+  #{org_seq,jdbcType=VARCHAR},
+  #{org_addr,jdbcType=VARCHAR},
+  #{org_zipcode,jdbcType=VARCHAR},
+  #{org_email,jdbcType=VARCHAR},
+  #{org_linkman,jdbcType=VARCHAR},
+  #{org_linktel,jdbcType=VARCHAR},
+  #{LINKMAN,jdbcType=VARCHAR},
+  #{ORG_MANAGER,jdbcType=VARCHAR},
+  #{auth_user_list,jdbcType=VARCHAR},
+  #{START_DATE,jdbcType=TIMESTAMP},
+  #{END_DATE,jdbcType=TIMESTAMP},
+  #{AREA,jdbcType=VARCHAR},
+  #{OPEN_TIME,jdbcType=VARCHAR},
+  #{CLOSE_TIME,jdbcType=VARCHAR},
+  #{MARK,jdbcType=VARCHAR},
+  #{PEN_DATE,jdbcType=TIMESTAMP},
+  #{ORG_ACCT_DATE,jdbcType=TIMESTAMP},
+  #{OP_FLAG,jdbcType=VARCHAR},
+  #{TD_FLAG,jdbcType=VARCHAR},
+  #{FOR_TYPE,jdbcType=VARCHAR},
+  #{CASH_USER_CNT,jdbcType=INTEGER},
+  #{MCCTL_USER_CNT,jdbcType=INTEGER},
+  #{SIGN_OUT_FLAG,jdbcType=VARCHAR}
+  )
+ 	</insert>
+ 	
+ 	<update id="update" parameterType="org.fone.bronsp.org.model.po.Btf_org_info">
+    	UPDATE btf_org_info 
+	    <set>
+		<if test="id != null" >
+        id = #{id,jdbcType=VARCHAR},
+      </if>
+		<if test="org_code != null" >
+        org_code = #{org_code,jdbcType=VARCHAR},
+      </if>
+		<if test="org_name != null" >
+        org_name = #{org_name,jdbcType=VARCHAR},
+      </if>
+		<if test="org_ename != null" >
+        org_ename = #{org_ename,jdbcType=VARCHAR},
+      </if>
+		<if test="org_type != null" >
+        org_type = #{org_type,jdbcType=VARCHAR},
+      </if>
+		<if test="org_degree != null" >
+        org_degree = #{org_degree,jdbcType=VARCHAR},
+      </if>
+		<if test="org_status != null" >
+        org_status = #{org_status,jdbcType=VARCHAR},
+      </if>
+		<if test="org_work_status != null" >
+        org_work_status = #{org_work_status,jdbcType=VARCHAR},
+      </if>
+		<if test="logout_time != null" >
+        logout_time = #{logout_time,jdbcType=TIMESTAMP},
+      </if>
+		<if test="login_time != null" >
+        login_time = #{login_time,jdbcType=TIMESTAMP},
+      </if>
+		<if test="valid_flag != null" >
+        valid_flag = #{valid_flag,jdbcType=VARCHAR},
+      </if>
+		<if test="par_org_code != null" >
+        par_org_code = #{par_org_code,jdbcType=VARCHAR},
+      </if>
+		<if test="org_seq != null" >
+        org_seq = #{org_seq,jdbcType=VARCHAR},
+      </if>
+		<if test="org_addr != null" >
+        org_addr = #{org_addr,jdbcType=VARCHAR},
+      </if>
+		<if test="org_zipcode != null" >
+        org_zipcode = #{org_zipcode,jdbcType=VARCHAR},
+      </if>
+		<if test="org_email != null" >
+        org_email = #{org_email,jdbcType=VARCHAR},
+      </if>
+		<if test="org_linkman != null" >
+        org_linkman = #{org_linkman,jdbcType=VARCHAR},
+      </if>
+		<if test="org_linktel != null" >
+        org_linktel = #{org_linktel,jdbcType=VARCHAR},
+      </if>
+		<if test="LINKMAN != null" >
+        LINKMAN = #{LINKMAN,jdbcType=VARCHAR},
+      </if>
+		<if test="ORG_MANAGER != null" >
+        ORG_MANAGER = #{ORG_MANAGER,jdbcType=VARCHAR},
+      </if>
+		<if test="auth_user_list != null" >
+        auth_user_list = #{auth_user_list,jdbcType=VARCHAR},
+      </if>
+		<if test="START_DATE != null" >
+        START_DATE = #{START_DATE,jdbcType=TIMESTAMP},
+      </if>
+		<if test="END_DATE != null" >
+        END_DATE = #{END_DATE,jdbcType=TIMESTAMP},
+      </if>
+		<if test="AREA != null" >
+        AREA = #{AREA,jdbcType=VARCHAR},
+      </if>
+		<if test="OPEN_TIME != null" >
+        OPEN_TIME = #{OPEN_TIME,jdbcType=VARCHAR},
+      </if>
+		<if test="CLOSE_TIME != null" >
+        CLOSE_TIME = #{CLOSE_TIME,jdbcType=VARCHAR},
+      </if>
+		<if test="MARK != null" >
+        MARK = #{MARK,jdbcType=VARCHAR},
+      </if>
+		<if test="PEN_DATE != null" >
+        PEN_DATE = #{PEN_DATE,jdbcType=TIMESTAMP},
+      </if>
+		<if test="ORG_ACCT_DATE != null" >
+        ORG_ACCT_DATE = #{ORG_ACCT_DATE,jdbcType=TIMESTAMP},
+      </if>
+		<if test="OP_FLAG != null" >
+        OP_FLAG = #{OP_FLAG,jdbcType=VARCHAR},
+      </if>
+		<if test="TD_FLAG != null" >
+        TD_FLAG = #{TD_FLAG,jdbcType=VARCHAR},
+      </if>
+		<if test="FOR_TYPE != null" >
+        FOR_TYPE = #{FOR_TYPE,jdbcType=VARCHAR},
+      </if>
+		<if test="CASH_USER_CNT != null" >
+        CASH_USER_CNT = #{CASH_USER_CNT,jdbcType=INTEGER},
+      </if>
+		<if test="MCCTL_USER_CNT != null" >
+        MCCTL_USER_CNT = #{MCCTL_USER_CNT,jdbcType=INTEGER},
+      </if>
+		<if test="SIGN_OUT_FLAG != null" >
+        SIGN_OUT_FLAG = #{SIGN_OUT_FLAG,jdbcType=VARCHAR},
+      </if>
+	    </set>
+	    WHERE 1=1 and id = #{id}
+	    
+ 	</update>
+ 	
+ 	<update id="updateForce" parameterType="org.fone.bronsp.org.model.po.Btf_org_info">
+    	UPDATE btf_org_info 
+	    <set>
+        id = #{id,jdbcType=VARCHAR},
+        org_code = #{org_code,jdbcType=VARCHAR},
+        org_name = #{org_name,jdbcType=VARCHAR},
+        org_ename = #{org_ename,jdbcType=VARCHAR},
+        org_type = #{org_type,jdbcType=VARCHAR},
+        org_degree = #{org_degree,jdbcType=VARCHAR},
+        org_status = #{org_status,jdbcType=VARCHAR},
+        org_work_status = #{org_work_status,jdbcType=VARCHAR},
+        logout_time = #{logout_time,jdbcType=TIMESTAMP},
+        login_time = #{login_time,jdbcType=TIMESTAMP},
+        valid_flag = #{valid_flag,jdbcType=VARCHAR},
+        par_org_code = #{par_org_code,jdbcType=VARCHAR},
+        org_seq = #{org_seq,jdbcType=VARCHAR},
+        org_addr = #{org_addr,jdbcType=VARCHAR},
+        org_zipcode = #{org_zipcode,jdbcType=VARCHAR},
+        org_email = #{org_email,jdbcType=VARCHAR},
+        org_linkman = #{org_linkman,jdbcType=VARCHAR},
+        org_linktel = #{org_linktel,jdbcType=VARCHAR},
+        LINKMAN = #{LINKMAN,jdbcType=VARCHAR},
+        ORG_MANAGER = #{ORG_MANAGER,jdbcType=VARCHAR},
+        auth_user_list = #{auth_user_list,jdbcType=VARCHAR},
+        START_DATE = #{START_DATE,jdbcType=TIMESTAMP},
+        END_DATE = #{END_DATE,jdbcType=TIMESTAMP},
+        AREA = #{AREA,jdbcType=VARCHAR},
+        OPEN_TIME = #{OPEN_TIME,jdbcType=VARCHAR},
+        CLOSE_TIME = #{CLOSE_TIME,jdbcType=VARCHAR},
+        MARK = #{MARK,jdbcType=VARCHAR},
+        PEN_DATE = #{PEN_DATE,jdbcType=TIMESTAMP},
+        ORG_ACCT_DATE = #{ORG_ACCT_DATE,jdbcType=TIMESTAMP},
+        OP_FLAG = #{OP_FLAG,jdbcType=VARCHAR},
+        TD_FLAG = #{TD_FLAG,jdbcType=VARCHAR},
+        FOR_TYPE = #{FOR_TYPE,jdbcType=VARCHAR},
+        CASH_USER_CNT = #{CASH_USER_CNT,jdbcType=INTEGER},
+        MCCTL_USER_CNT = #{MCCTL_USER_CNT,jdbcType=INTEGER},
+        SIGN_OUT_FLAG = #{SIGN_OUT_FLAG,jdbcType=VARCHAR},
+	    </set>
+	    WHERE 1=1 and id = #{id}
+ 	</update>
+ 	 
+    <delete id="delete" parameterType="java.lang.String">
+	  	delete from btf_org_info where 1=1 and id = #{id}
+	</delete>
+	
+	<delete id="deleteByCondition" parameterType="org.bronsp.core.WhereCondition">
+	  	delete from btf_org_info <include refid="Where_Clause" />
+	</delete>
+	
+	 <update id="updateByCondition" parameterType="map">
+    	UPDATE btf_org_info 
+	   <set>
+		<if test="domain.id != null" >
+        id = #{domain.id,jdbcType=VARCHAR},
+      </if>
+		<if test="domain.org_code != null" >
+        org_code = #{domain.org_code,jdbcType=VARCHAR},
+      </if>
+		<if test="domain.org_name != null" >
+        org_name = #{domain.org_name,jdbcType=VARCHAR},
+      </if>
+		<if test="domain.org_ename != null" >
+        org_ename = #{domain.org_ename,jdbcType=VARCHAR},
+      </if>
+		<if test="domain.org_type != null" >
+        org_type = #{domain.org_type,jdbcType=VARCHAR},
+      </if>
+		<if test="domain.org_degree != null" >
+        org_degree = #{domain.org_degree,jdbcType=VARCHAR},
+      </if>
+		<if test="domain.org_status != null" >
+        org_status = #{domain.org_status,jdbcType=VARCHAR},
+      </if>
+		<if test="domain.org_work_status != null" >
+        org_work_status = #{domain.org_work_status,jdbcType=VARCHAR},
+      </if>
+		<if test="domain.logout_time != null" >
+        logout_time = #{domain.logout_time,jdbcType=TIMESTAMP},
+      </if>
+		<if test="domain.login_time != null" >
+        login_time = #{domain.login_time,jdbcType=TIMESTAMP},
+      </if>
+		<if test="domain.valid_flag != null" >
+        valid_flag = #{domain.valid_flag,jdbcType=VARCHAR},
+      </if>
+		<if test="domain.par_org_code != null" >
+        par_org_code = #{domain.par_org_code,jdbcType=VARCHAR},
+      </if>
+		<if test="domain.org_seq != null" >
+        org_seq = #{domain.org_seq,jdbcType=VARCHAR},
+      </if>
+		<if test="domain.org_addr != null" >
+        org_addr = #{domain.org_addr,jdbcType=VARCHAR},
+      </if>
+		<if test="domain.org_zipcode != null" >
+        org_zipcode = #{domain.org_zipcode,jdbcType=VARCHAR},
+      </if>
+		<if test="domain.org_email != null" >
+        org_email = #{domain.org_email,jdbcType=VARCHAR},
+      </if>
+		<if test="domain.org_linkman != null" >
+        org_linkman = #{domain.org_linkman,jdbcType=VARCHAR},
+      </if>
+		<if test="domain.org_linktel != null" >
+        org_linktel = #{domain.org_linktel,jdbcType=VARCHAR},
+      </if>
+		<if test="domain.LINKMAN != null" >
+        LINKMAN = #{domain.LINKMAN,jdbcType=VARCHAR},
+      </if>
+		<if test="domain.ORG_MANAGER != null" >
+        ORG_MANAGER = #{domain.ORG_MANAGER,jdbcType=VARCHAR},
+      </if>
+		<if test="domain.auth_user_list != null" >
+        auth_user_list = #{domain.auth_user_list,jdbcType=VARCHAR},
+      </if>
+		<if test="domain.START_DATE != null" >
+        START_DATE = #{domain.START_DATE,jdbcType=TIMESTAMP},
+      </if>
+		<if test="domain.END_DATE != null" >
+        END_DATE = #{domain.END_DATE,jdbcType=TIMESTAMP},
+      </if>
+		<if test="domain.AREA != null" >
+        AREA = #{domain.AREA,jdbcType=VARCHAR},
+      </if>
+		<if test="domain.OPEN_TIME != null" >
+        OPEN_TIME = #{domain.OPEN_TIME,jdbcType=VARCHAR},
+      </if>
+		<if test="domain.CLOSE_TIME != null" >
+        CLOSE_TIME = #{domain.CLOSE_TIME,jdbcType=VARCHAR},
+      </if>
+		<if test="domain.MARK != null" >
+        MARK = #{domain.MARK,jdbcType=VARCHAR},
+      </if>
+		<if test="domain.PEN_DATE != null" >
+        PEN_DATE = #{domain.PEN_DATE,jdbcType=TIMESTAMP},
+      </if>
+		<if test="domain.ORG_ACCT_DATE != null" >
+        ORG_ACCT_DATE = #{domain.ORG_ACCT_DATE,jdbcType=TIMESTAMP},
+      </if>
+		<if test="domain.OP_FLAG != null" >
+        OP_FLAG = #{domain.OP_FLAG,jdbcType=VARCHAR},
+      </if>
+		<if test="domain.TD_FLAG != null" >
+        TD_FLAG = #{domain.TD_FLAG,jdbcType=VARCHAR},
+      </if>
+		<if test="domain.FOR_TYPE != null" >
+        FOR_TYPE = #{domain.FOR_TYPE,jdbcType=VARCHAR},
+      </if>
+		<if test="domain.CASH_USER_CNT != null" >
+        CASH_USER_CNT = #{domain.CASH_USER_CNT,jdbcType=INTEGER},
+      </if>
+		<if test="domain.MCCTL_USER_CNT != null" >
+        MCCTL_USER_CNT = #{domain.MCCTL_USER_CNT,jdbcType=INTEGER},
+      </if>
+		<if test="domain.SIGN_OUT_FLAG != null" >
+        SIGN_OUT_FLAG = #{domain.SIGN_OUT_FLAG,jdbcType=VARCHAR},
+      </if>
+	    </set>
+	   <where>${wc.condition}</where>
+ 	</update>
+	 
+	<select id="loadById" parameterType="String" resultType="org.fone.bronsp.org.model.po.Btf_org_info">
+		select <include refid="Base_Column_List"/> from btf_org_info where 1=1 and id = #{id}
+	</select>
+	
+    <select id="query" resultType="org.fone.bronsp.org.model.po.Btf_org_info" parameterType="org.bronsp.core.WhereCondition" >
+    	<if test="length > 0 and url == 'oracle'" >
+    	select <include refid="Base_Column_List" /> from
+   			(select a.*,rownum row_num from
+      			(</if>
+      			select <include refid="Base_Column_List" /> from btf_org_info <include refid="Where_Clause" />
+        			<if test="orderBy != null" >${orderBy}</if>
+        			<if test="length > 0 and url == 'mysql'" >LIMIT ${offset}, ${length}</if>
+        		<if test="length > 0 and url == 'oracle'" >) a
+   			) b 
+		where b.row_num between ${offset} and ${length}</if>
+    
+  	</select>
+  
+   	<select id="count" resultType="int" parameterType="org.bronsp.core.WhereCondition" >
+	    select count(*) from btf_org_info <include refid="Where_Clause"/>
+  	</select>
+  
+	<sql id="Where_Clause">
+	    <if test="condition != null"><where>${condition}</where></if> 
+	</sql>
+  
+	<sql id="Base_Column_List" >
+	  id
+,org_code
+,org_name
+,org_ename
+,org_type
+,org_degree
+,org_status
+,org_work_status
+,logout_time
+,login_time
+,valid_flag
+,par_org_code
+,org_seq
+,org_addr
+,org_zipcode
+,org_email
+,org_linkman
+,org_linktel
+,LINKMAN
+,ORG_MANAGER
+,auth_user_list
+,START_DATE
+,END_DATE
+,AREA
+,OPEN_TIME
+,CLOSE_TIME
+,MARK
+,PEN_DATE
+,ORG_ACCT_DATE
+,OP_FLAG
+,TD_FLAG
+,FOR_TYPE
+,CASH_USER_CNT
+,MCCTL_USER_CNT
+,SIGN_OUT_FLAG
+	</sql>
+</mapper>

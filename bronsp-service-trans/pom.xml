@@ -1,0 +1,100 @@
+<?xml version="1.0"?>
+<project
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
+	xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+    <groupId>org.fone</groupId>
+    <artifactId>bronsp-parent</artifactId>
+    <version>0.0.1</version>
+  </parent>
+	<artifactId>bronsp-service-trans</artifactId>
+	<name>bronsp-service-trans</name>
+	<url>http://maven.apache.org</url>
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	</properties>
+	<dependencies>
+
+		<!-- zookeeper & zkclient -->
+		<dependency>
+			<groupId>org.apache.zookeeper</groupId>
+			<artifactId>zookeeper</artifactId>
+			<exclusions>
+				<exclusion>
+					<artifactId>log4j</artifactId>
+					<groupId>log4j</groupId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.slf4j</groupId>
+					<artifactId>slf4j-log4j12</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<dependency>
+			<groupId>com.101tec</groupId>
+			<artifactId>zkclient</artifactId>
+		</dependency>
+		
+		<!-- fastjson -->
+		<dependency>
+			<groupId>com.alibaba</groupId>
+			<artifactId>fastjson</artifactId>
+		</dependency>
+		
+		<!-- bronsp trans -->
+		<dependency>
+			<groupId>org.fone</groupId>
+			<artifactId>bronsp-common</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.fone</groupId>
+			<artifactId>bronsp-facade-trans</artifactId>
+		</dependency>
+	</dependencies>
+	
+	<!-- 编译输出部署安装包 -->
+	<build>
+		<plugins>
+			<plugin>
+				<artifactId>maven-dependency-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>unpack</id>
+						<phase>package</phase>
+						<goals>
+							<goal>unpack</goal>
+						</goals>
+						<configuration>
+							<artifactItems>
+								<artifactItem>
+									<groupId>org.shiyl</groupId>
+									<artifactId>bronsp-runtime-assembly</artifactId>
+									<version>0.0.1-SNAPSHOT</version>
+									<outputDirectory>${project.build.directory}/runtime</outputDirectory>
+									<includes>META-INF/assembly/**</includes>
+								</artifactItem>
+							</artifactItems>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<artifactId>maven-assembly-plugin</artifactId>
+				<configuration>
+					<descriptor>src/main/assembly/assembly.xml</descriptor>
+				</configuration>
+				<executions>
+					<execution>
+						<id>make-assembly</id>
+						<phase>package</phase>
+						<goals>
+							<goal>single</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+	<description>交易服务</description>
+</project>
