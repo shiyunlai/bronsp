@@ -35,3 +35,5 @@ autogen/
 
 dubbo/output/
 
+# 不提交bronsp-test工程中的实验代码
+bronsp-test/src/
