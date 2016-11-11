@@ -40,7 +40,7 @@ public class POGenerator extends ASourceCodeGenerator<BizModel> {
 			
 			map.clear(); 
 			//源码package
-			String p = CommonUtil.normPackageName(bm.getPackageName() + ".model.po" + "." + bm.getId()) ;
+			String p = CommonUtil.normPackageName(bm.getMainpackage() + ".model.po" + "." + bm.getId()) ;
 			map.put("packageName", p) ; 
 			map.put("bizmodelId", CommonUtil.normPackageName(bm.getId())) ;//业务领域id
 			String targetPath = sourceDir + CommonUtil.package2Path(p) ; 

@@ -41,9 +41,9 @@ public class MapperJavaGenerator extends ASourceCodeGenerator<BizModel> {
 			map.clear(); 
 			
 			//源码package
-			String pMapperJava = CommonUtil.normPackageName(bm.getPackageName() + ".dao.mapper"+"." +bm.getId()) ; 
+			String pMapperJava = CommonUtil.normPackageName(bm.getMainpackage() + ".dao.mapper"+"." +bm.getId()) ; 
 			String pMapperXml  = pMapperJava ; 
-			map.put("mainPackage", bm.getPackageName()) ;
+			map.put("mainPackage", bm.getMainpackage()) ;
 			map.put("bizmodelId", CommonUtil.normPackageName(bm.getId())) ;//业务领域id
 			for( Model m : bm.getModels() ){
 				

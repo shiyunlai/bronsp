@@ -39,8 +39,8 @@ public class ControllerGenerator extends ASourceCodeGenerator<BizModel> {
 		for( BizModel bm : genModelDef ){
 			map.clear(); 
 			//源码package
-			String pControllerJava    = CommonUtil.normPackageName(bm.getPackageName() + ".controller" + "." + bm.getId() ) ; 
-			map.put("mainPackage", bm.getPackageName()) ;
+			String pControllerJava    = CommonUtil.normPackageName(bm.getMainpackage() + ".controller" + "." + bm.getId() ) ; 
+			map.put("mainPackage", bm.getMainpackage()) ;
 			map.put("bizmodelId", CommonUtil.normPackageName(bm.getId())) ;//业务领域id
 			for( Model m : bm.getModels() ){
 				

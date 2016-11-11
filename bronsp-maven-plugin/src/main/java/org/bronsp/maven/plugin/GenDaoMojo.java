@@ -261,7 +261,9 @@ public class GenDaoMojo extends AbstractMojo {
 		for( File defFile : modelDefFiles ){
 			BizModel bm = Xml22BeanUtil.xml2Bean(BizModel.class, defFile) ; 
 			bm.setModelDefFile(defFile.getPath()) ; 
-			bm.setPackageName(mainPackage);
+			if( StringUtils.isNotEmpty(mainPackage) ) {
+				bm.setMainpackage(mainPackage);//以-Dmain.package传入的主包路径为准
+			}
 			bizModelList.add( bm ) ;
 		}
 		

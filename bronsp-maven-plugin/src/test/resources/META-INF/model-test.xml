@@ -30,8 +30,8 @@
 		<!-- 1、所有id值会被转为小写字母，如果没设定id，则用name转为拼音。 -->
 		<!--  -->
 		<model name="总账" id="tb_gnl" desc="总账表，记录用户的总账信息" ext="2,1000" >
-			<field name="唯一ID"  id="ID" type="string" length="128" />
-			<field name="试卷编码"  id="paper_code" type="string" length="128" />
+			<field name="唯一ID"  id="ID" type="string" length="128" key="true"/>
+			<field name="试卷编码"  id="paper_code" type="string" length="128" key="true"/>
 			<field name="课程编码"  id="course_code" type="string" length="128" />
 			<field name="顺序号"  id="seq_no" type="long" length="8" />
 			<field name="考卷名称"  id="paper_name" type="string" length="1024" />

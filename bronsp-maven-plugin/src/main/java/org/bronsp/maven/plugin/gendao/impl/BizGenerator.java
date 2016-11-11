@@ -38,8 +38,8 @@ public class BizGenerator extends ASourceCodeGenerator<BizModel>{
 		for( BizModel bm : genModelDef ){
 			map.clear(); 
 			//源码package
-			String pBizJava    = CommonUtil.normPackageName(bm.getPackageName() + ".biz" +"." + bm.getId()); 
-			map.put("mainPackage", bm.getPackageName()) ;
+			String pBizJava    = CommonUtil.normPackageName(bm.getMainpackage() + ".biz" +"." + bm.getId()); 
+			map.put("mainPackage", bm.getMainpackage()) ;
 			map.put("bizmodelId", CommonUtil.normPackageName(bm.getId())) ;//业务领域id
 			for( Model m : bm.getModels() ){
 				

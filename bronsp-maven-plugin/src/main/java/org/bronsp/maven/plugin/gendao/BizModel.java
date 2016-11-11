@@ -36,10 +36,18 @@ public class BizModel implements IGenModelDefine{
 	private String name;
 	
 	/**
+	 * 本业务域的package
+	 * </br>主package路径
+	 */
+	@XmlAttribute(required=false)
+	private String mainpackage ;
+	
+	/**
 	 * 业务域描述信息
 	 */
 	@XmlElement(required=false)
 	private String desc ; 
+	 
 	
 	/**
 	 * models模型所在的定义文件名
@@ -47,18 +55,12 @@ public class BizModel implements IGenModelDefine{
 	private String modelDefFile ; 
 	
 	/**
-	 * 本业务域的package
-	 * </br>主package路径
-	 */
-	private String packageName ; 
-	
-	/**
 	 * 某个业务域中的模型定义
 	 */
 	@XmlElementWrapper(name = "models")
 	@XmlElement(name = "model")
 	private List<Model> models = new ArrayList<Model>();
-
+	
 	@XmlTransient
 	public String getName() {
 		return name;
@@ -82,6 +84,20 @@ public class BizModel implements IGenModelDefine{
 		return models;
 	}
 
+	@XmlTransient
+	public String getMainpackage() {
+		return mainpackage;
+	}
+
+	/**
+	 * </br>主package路径
+	 * @param mainpackage
+	 */
+	public void setMainpackage(String mainpackage) {
+		this.mainpackage = mainpackage;
+	}
+
+	
 	public void setName(String name) {
 		this.name = name;
 	}
@@ -106,21 +122,9 @@ public class BizModel implements IGenModelDefine{
 		this.modelDefFile =path;
 	}
 	
-	public String getPackageName() {
-		return packageName;
-	}
-
-	/**
-	 * </br>主package路径
-	 * @param packageName
-	 */
-	public void setPackageName(String packageName) {
-		this.packageName = packageName;
-	}
-
 	public String toString() {
 		StringBuffer sb = new StringBuffer();
-		sb.append(id).append(" ").append(name).append(" ").append(modelDefFile).append("\n");
+		sb.append(id).append(" ").append(name).append(" ").append(mainpackage).append(" ").append(modelDefFile).append("\n");
 		for( Model m : models ){
 			sb.append("- ").append(m.toString()).append("\n"); 
 		}
