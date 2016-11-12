@@ -134,8 +134,8 @@ public class GenDaoMojo extends AbstractMojo {
 	
 	/**
 	 * <pre>
-	 * <br/>指定生成哪些源码类型
-	 * <br/>当前可选类型有：
+	 * 指定生成哪些源码类型
+	 * 当前可选类型有：
 	 * 	ddl 数据库脚本，目前生成mysql脚本
 	 * 	model 模型源码，对应数据库表记录PO，对应界面展示对象VO，对应服务传输对象DTO； 
 	 * 	dao 数据访问层，基于mysql，进行业务域内数据的存取操作； 
@@ -143,12 +143,13 @@ public class GenDaoMojo extends AbstractMojo {
 	 * 	controller 控制层，处理ui请求；
 	 * 	ui 界面层，提供交互操作能力; 
 	 * 	service 服务层，基于dubbo实现，作为服务提供者对外提供服务能力; 
-	 * <br/>多种类型逗号分隔，如： -Dgen.type=model,ui,service 将生成model、ui、service层的源码
-	 * <br/>不指定则全部生成
+	 * 多种类型逗号分隔，如： -Dgen.type=model,ui,service 将生成model、ui、service层的源码
+	 * 不指定则全部生成
 	 * </pre>
 	 */
 	@Parameter( property = "gen.type" , defaultValue="ddl,model,dao,biz,controller,ui,service") 
 	private String  genType;
+	
 	private List<String> genTypes = new ArrayList<String>() ; 
 	
 	
@@ -201,9 +202,10 @@ public class GenDaoMojo extends AbstractMojo {
 		 * 准备 package
 		 * 如果不指定，默认：${project.groupId}.${project.artifactId}
 		 */
-		if ( StringUtils.isEmpty(mainPackage) ) {
-			mainPackage = CommonUtil.normPackageName(groupId);
-			getLog().debug("default package is :"+mainPackage);
+		String defMainPackage = null ; 
+		if ( StringUtils.isEmpty(mainPackage) ) {//未通过-Dmain.package指定包路径
+			defMainPackage = CommonUtil.normPackageName(groupId);
+			getLog().debug("default package is :"+defMainPackage);
 		}else{
 			mainPackage = CommonUtil.normPackageName(mainPackage) ; 
 			getLog().debug("fixed package is :"+mainPackage);
@@ -259,11 +261,20 @@ public class GenDaoMojo extends AbstractMojo {
 		 * 解析模型定义文件
 		 */
 		for( File defFile : modelDefFiles ){
+			
 			BizModel bm = Xml22BeanUtil.xml2Bean(BizModel.class, defFile) ; 
 			bm.setModelDefFile(defFile.getPath()) ; 
+			
+			//以-Dmain.package传入的主包路径为准
 			if( StringUtils.isNotEmpty(mainPackage) ) {
-				bm.setMainpackage(mainPackage);//以-Dmain.package传入的主包路径为准
+				bm.setMainpackage(mainPackage);
 			}
+			
+			//如果model.xml和－D都未设置，则使用默认包路径
+			if( StringUtils.isEmpty(bm.getMainpackage()) ){
+				bm.setMainpackage(defMainPackage);
+			}
+			
 			bizModelList.add( bm ) ;
 		}
 		
