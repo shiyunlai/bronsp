@@ -1,4 +1,4 @@
-<#assign wcClassPackageVar="org.fone.bronsp.base.WhereCondition">
+<#assign wcClassPackageVar="${mainPackage}.base.WhereCondition">
 <#assign poClassPackageVar="${mainPackage}.model.po.${bizmodelId}.${poClassNameVar}">
 <#assign mapperJavaPackageVar="${mainPackage}.dao.mapper.${bizmodelId}.${poClassNameVar}Mapper">
 

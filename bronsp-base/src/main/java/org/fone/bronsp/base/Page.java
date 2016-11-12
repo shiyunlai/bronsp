@@ -1,4 +1,4 @@
-package org.fone.bronsp.base.controller;
+package org.fone.bronsp.base;
 
 /**
  * 分页对象

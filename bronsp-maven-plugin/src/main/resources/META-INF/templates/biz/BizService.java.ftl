@@ -1,7 +1,7 @@
 <#assign bizClassNameVar="${humpClassName(table.id)}Biz">
 <#assign mapperTypeVar="${humpClassName(table.id)}Mapper">
 <#assign mapperVar="${humpClassName(table.id)?uncap_first}Mapper">
-<#assign wcClassPackageVar="org.fone.bronsp.base.WhereCondition">
+<#assign wcClassPackageVar="${mainPackage}.base.WhereCondition">
 /**
  * auto generated
  * Copyright (C) 2016 bronsp.com, All rights reserved.

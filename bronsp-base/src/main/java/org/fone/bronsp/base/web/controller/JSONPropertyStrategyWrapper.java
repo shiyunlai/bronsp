@@ -1,4 +1,4 @@
-package org.fone.bronsp.base.controller;
+package org.fone.bronsp.base.web.controller;
 
 import net.sf.json.JSONException;
 import net.sf.json.util.PropertySetStrategy;

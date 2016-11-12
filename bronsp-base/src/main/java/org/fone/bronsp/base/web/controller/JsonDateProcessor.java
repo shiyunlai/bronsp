@@ -4,7 +4,7 @@
  * Created by Jackie
  * Copyright (C) 2013 lanmosoft.com, All rights reserved.
  */
-package org.fone.bronsp.base.controller;
+package org.fone.bronsp.base.web.controller;
 
 import net.sf.json.JsonConfig;
 import net.sf.json.processors.JsonValueProcessor;

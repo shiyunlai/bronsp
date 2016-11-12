@@ -5,8 +5,7 @@
  */
 package ${packageName};
 
-import org.fone.bronsp.base.BaseMapper;
-
+import ${mainPackage}.base.BaseMapper;
 import ${mainPackage}.model.po.${bizmodelId}.${poClassNameVar};
 
 /**

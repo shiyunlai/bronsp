@@ -1,8 +1,8 @@
-<#assign wcClassPackageVar="org.fone.bronsp.base.WhereCondition">
-<#assign ajaxUtilsClassPackageVar="org.bronsp.common.util.AjaxUtils">
-<#assign jsonUtilsClassPackageVar="org.bronsp.common.util.JSONUtils">
-<#assign pageClassPackageVar="org.fone.bronsp.base.controller.Page">
-<#assign baseControllerPackageVar="org.fone.bronsp.base.controller.BaseController">
+<#assign wcClassPackageVar="${mainPackage}.base.WhereCondition">
+<#assign ajaxUtilsClassPackageVar="${mainPackage}.common.util.AjaxUtils">
+<#assign jsonUtilsClassPackageVar="${mainPackage}.common.util.JSONUtils">
+<#assign pageClassPackageVar="${mainPackage}.base.Page">
+<#assign baseControllerPackageVar="${mainPackage}.base.web.controller.BaseController">
 /**
  * auto generated
  * Copyright (C) 2016 bronsp.com, All rights reserved.
