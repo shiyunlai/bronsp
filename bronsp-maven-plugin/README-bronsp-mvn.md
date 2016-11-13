@@ -17,11 +17,20 @@
 	
 	注：无需指定后缀名
 	
-*	默认生成的源码package路径为 主工程/src/main/java/${project.groupId}，其中系统自动过滤并转换java保留字，包命名规范为： 公司/组织 . 产品 . 功能模块划分 . 功能类型限定 . 业务域；-Dmain.package可指定类的package，命令如下：
+*	指定生成的代码主包路径，命令如下：
 
 	mvn bronsp:gendao -Dmain.package=com.bosh.tis
 	
-	假如：如上生成User.java，则完整的类package为： com.bosh.tis.model.po.User
+	如上生成User.java，完整的类package为： com.bosh.tis.model.po.User，生成的源码主路径为 主工程/src/main/java/com/bosh/tis/..../*.java
+	
+	package规范：
+		
+		公司/组织 . 产品 . 功能模块划分 . 功能类型限定 . 业务域
+	
+	规则：
+		1、-Dmain.package=指定包路径
+		2、model.xml中bizmodel节点的mainpackage属性指定
+		3、以上都不指定，系统默认使用当前工程groupId作为包路径
 
 *	默认系统将使用插件中的自带的模版生成代码；-Dtemplates.path可指定模版位置，命令如下：
 	
@@ -106,24 +115,27 @@
 *	如何开发maven插件，参考官网：[扩展maven插件](http://maven.apache.org/guides/plugin/guide-java-plugin-development.html)
 
 
+## TODO List
 
-## 遗留问题
-
-问题一、 (解决)如何把FreeMarker模版放在jar包中，使用着无需依赖外部目录？
+TODO1、 (解决)如何把FreeMarker模版放在jar包中，使用着无需依赖外部目录？
 	
 	见：FreeMarkerUtil中两个init开头的方法；
 
-问题二、 没有做模型的重复检查，如： 1.xml 2.xml两个模型文件中都定义了 acct，目前没有做报错提示；
+TODO2、 没有做模型的重复检查，如： 1.xml 2.xml两个模型文件中都定义了 acct，目前没有做报错提示；
 
-问题三、 (解决)应该把生成源码的功能块重构为不同的生成策略，提升扩展性；
+TODO3、 (解决)应该把生成源码的功能块重构为不同的生成策略，提升扩展性；
 	
 	见：ASourceCodeGenerator、IGenModelDefine、GenDAOManager
 
-问题四： 没有生成VO、DTO
+TODO4： 没有生成VO、DTO
 
-问题五： 还未生成ui层代码
+TODO5： 还未生成ui层代码
 
-问题六： 还未生成dubbo的service代码
+TODO6： 还未生成dubbo的service代码
+
+TODO6： 还因该支持向多个工程输出生成源码，如：所生成的源码，分为facade、service两个层次，存放到两个工程中去。
+
+
 
 
 
