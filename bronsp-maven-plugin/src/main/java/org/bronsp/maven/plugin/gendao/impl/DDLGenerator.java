@@ -47,10 +47,11 @@ public class DDLGenerator extends ASourceCodeGenerator<BizModel> {
 		
 		for(  BizModel bm : genModelDef ){
 			
+			map.put("defineFile", bm.getModelDefFile());
+			
 			if( bm.getModels().size() <= 0 ){
 				continue ; 
 			}
-			
 			System.out.println("开始生成建表脚本，业务域：["+bm.getId()+" : "+ bm.getName() +"]");
 			map.put("tables", bm.getModels());
 			map.put("bizmodelId", CommonUtil.normPackageName(bm.getId())) ;//业务领域id

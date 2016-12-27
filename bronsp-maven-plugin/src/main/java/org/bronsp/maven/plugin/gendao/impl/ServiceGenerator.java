@@ -37,7 +37,10 @@ public class ServiceGenerator extends ASourceCodeGenerator<BizModel>{
 		Map map = new HashMap();
 		String targetFile = null ; 
 		for( BizModel bm : genModelDef ){
+			
 			map.clear(); 
+			map.put("defineFile", bm.getModelDefFile());
+			
 			//源码package
 			//规范： 组织.产品.功能划分(service).类型限制(null).业务域id
 			String pBizJava    = CommonUtil.normPackageName(bm.getMainpackage() + ".service" +"."+ bm.getId()); 

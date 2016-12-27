@@ -39,6 +39,7 @@ public class RServiceGenerator extends ASourceCodeGenerator<BizModel> {
 		for( BizModel bm : genModelDef ){
 			
 			map.clear(); 
+			map.put("defineFile", bm.getModelDefFile());
 			
 			//源码package
 			//规范： 组织.产品.功能划分(rservice).类型限制(api).业务域id

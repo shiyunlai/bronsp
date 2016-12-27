@@ -40,6 +40,8 @@ public class POGenerator extends ASourceCodeGenerator<BizModel> {
 		for( BizModel bm : genModelDef ){
 			
 			map.clear(); 
+			map.put("defineFile", bm.getModelDefFile());
+			
 			//源码package
 			String p = CommonUtil.normPackageName(bm.getMainpackage() + ".model.po" + "." + bm.getId()) ;
 			map.put("packageName", p) ; 
@@ -57,7 +59,6 @@ public class POGenerator extends ASourceCodeGenerator<BizModel> {
 			String targetPath = realSourceDir + CommonUtil.package2Path(p) ; 
 			for( Model m : bm.getModels() ){
 				map.put("table", m);
-				map.put("defineFile", bm.getModelDefFile());
 				//生成PO对象
 				String poJavaFiel = targetPath + FreeMarkerUtil.capFirst(CommonUtil.line2Hump(m.getId())) + ".java" ; 
 				try {

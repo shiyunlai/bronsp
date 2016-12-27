@@ -64,7 +64,8 @@ public class ControllerGenerator extends ASourceCodeGenerator<BizModel> {
 			
 			for( Model m : bm.getModels() ){
 				
-				map.put("table", m) ; 
+				map.put("table", m) ;
+				map.put("defineFile", bm.getModelDefFile());
 				String className = FreeMarkerUtil.capFirst(CommonUtil.line2Hump(m.getId())) ; 
 				map.put("poClassName", className) ;//Controller对象类名
 				
