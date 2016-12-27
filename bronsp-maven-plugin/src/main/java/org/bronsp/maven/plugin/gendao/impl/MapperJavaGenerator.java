@@ -7,6 +7,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.commons.lang.StringUtils;
 import org.bronsp.maven.plugin.exception.GenDaoMojoException;
 import org.bronsp.maven.plugin.gendao.BizModel;
 import org.bronsp.maven.plugin.gendao.Model;
@@ -45,6 +46,16 @@ public class MapperJavaGenerator extends ASourceCodeGenerator<BizModel> {
 			String pMapperXml  = pMapperJava ; 
 			map.put("mainPackage", bm.getMainpackage()) ;
 			map.put("bizmodelId", CommonUtil.normPackageName(bm.getId())) ;//业务领域id
+			
+			String realSourceDir = null ; 
+			if( StringUtils.isNotEmpty(bm.getPrjService()) ){
+				//如果模型中定义了 prjService ，则将代码生成到指定工程目录下 
+				realSourceDir = CommonUtil.replacePrjNameInMaven(sourceDir, bm.getPrjService()) ;
+			}else{
+				//模型中没有定义 prjSevice ，则代码生成到当前工程
+				realSourceDir = sourceDir ;
+			}
+			
 			for( Model m : bm.getModels() ){
 				
 				map.put("table", m) ; 
@@ -53,7 +64,7 @@ public class MapperJavaGenerator extends ASourceCodeGenerator<BizModel> {
 				
 				//生成XXMapper.java
 				map.put("packageName", pMapperJava) ; 
-				targetFile = sourceDir + CommonUtil.package2Path(pMapperJava) + className + "Mapper.java";
+				targetFile = realSourceDir + CommonUtil.package2Path(pMapperJava) + className + "Mapper.java";
 				try {
 					FreeMarkerUtil.process("Mapper.java.ftl", map, targetFile);
 					addGenFile(targetFile);

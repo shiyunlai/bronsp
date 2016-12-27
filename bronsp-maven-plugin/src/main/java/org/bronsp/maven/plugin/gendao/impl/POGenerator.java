@@ -7,6 +7,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.commons.lang.StringUtils;
 import org.bronsp.maven.plugin.exception.GenDaoMojoException;
 import org.bronsp.maven.plugin.gendao.BizModel;
 import org.bronsp.maven.plugin.gendao.Model;
@@ -43,7 +44,17 @@ public class POGenerator extends ASourceCodeGenerator<BizModel> {
 			String p = CommonUtil.normPackageName(bm.getMainpackage() + ".model.po" + "." + bm.getId()) ;
 			map.put("packageName", p) ; 
 			map.put("bizmodelId", CommonUtil.normPackageName(bm.getId())) ;//业务领域id
-			String targetPath = sourceDir + CommonUtil.package2Path(p) ; 
+			
+			String realSourceDir ="" ;
+			if( StringUtils.isNotEmpty(bm.getPrjCore())){
+				// 如果模型中定义了 prjCore ，则将代码生成到指定工程目录下 
+				realSourceDir = CommonUtil.replacePrjNameInMaven(sourceDir, bm.getPrjCore()) ;
+			}else{
+				// 模型中没有定义 prjCore ，则代码生成到当前工程
+				realSourceDir = sourceDir ; 
+			}
+			
+			String targetPath = realSourceDir + CommonUtil.package2Path(p) ; 
 			for( Model m : bm.getModels() ){
 				map.put("table", m);
 				map.put("defineFile", bm.getModelDefFile());

@@ -42,7 +42,8 @@ public class DDLGenerator extends ASourceCodeGenerator<BizModel> {
 		
 		Map map = new HashMap();
 		
-		String projectPath = CommonUtil.getProjectPathBySource(sourceDir) ; //主工程路径
+		// ddl脚本，生成在当前工程中
+		String projectPath = CommonUtil.getProjectPathBySource(sourceDir) ; 
 		
 		for(  BizModel bm : genModelDef ){
 			

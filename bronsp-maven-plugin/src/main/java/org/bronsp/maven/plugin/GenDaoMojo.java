@@ -217,12 +217,12 @@ public class GenDaoMojo extends AbstractMojo {
 		if( null == templatesPath || "".equals(templatesPath) ){
 			//URL url = GenDaoMojo.class.getClassLoader().getResource("/META-INF/templates/biz/") ;
 			//templatesPath = projectDirect+"../bronsp-develop-assembly/gendao/templates/biz/" ; 
-			getLog().info("默认源码模版路径");
+			getLog().debug("默认源码模版路径");
 		}else{
 			if( ! new File(templatesPath).exists() ){
 				throw new GenDaoMojoException("指定的模版文件路径<"+templatesPath+">不存在!") ; 
 			}
-			getLog().info("指定源码模版路径："+ templatesPath);
+			getLog().debug("指定源码模版路径："+ templatesPath);
 		}
 		
 		/*
@@ -230,12 +230,12 @@ public class GenDaoMojo extends AbstractMojo {
 		 */
 		if( null == modelFilePath || "".equals(modelFilePath) ){
 			modelFilePath = projectDirect + "model/" ; 
-			getLog().info("默认模型定义文件存放路径："+ modelFilePath);
+			getLog().debug("默认模型定义文件存放路径："+ modelFilePath);
 		}else{
 			if( ! new File(modelFilePath).exists() ){
 				throw new GenDaoMojoException("模型定义文件路径<"+modelFilePath+">不存在!") ; 
 			}
-			getLog().info("指定模型定义文件存放路径："+ modelFilePath);
+			getLog().debug("指定模型定义文件存放路径："+ modelFilePath);
 		}
 		
 		/*
@@ -319,6 +319,7 @@ public class GenDaoMojo extends AbstractMojo {
 	}
 	
 	private void showAllConfigurationValue() {
+		getLog().info("======================= gen-dao info ======================");
 		getLog().info("工程名称:"+projectName); 
 		getLog().info("工程路径:"+projectDirect); 
 		getLog().info("模型定义路径:"+modelFilePath); 
@@ -326,6 +327,7 @@ public class GenDaoMojo extends AbstractMojo {
 		getLog().info("生成源码的模型包括:"+showModelList(bizModelList));
 		getLog().info("源码的主package:"+mainPackage);
 		getLog().info("生成源码类型包括:"+genType);
+		getLog().info("===========================================================");
 	}
 	
 	
@@ -375,7 +377,7 @@ public class GenDaoMojo extends AbstractMojo {
 		
 		if( genTypes.contains("biz") ){
 			
-			//生成biz业务层代码
+			//生成biz业务层代码(Service，Remote Service)
 			GenDAOManager.instance.genBiz(bizModelList, resourcesDirect, sourceDirect);
 		}
 		

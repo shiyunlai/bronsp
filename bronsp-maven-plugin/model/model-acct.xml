@@ -4,8 +4,25 @@
 <!-- 说明：id，属性，必输。业务域唯一ID（避免重复），生成代码时用作package路径，建议采用单个单词作为 bizmodel的id，而不是驼峰规则或者多个单词。 -->
 <!-- 说明：mainpackage，元素，生成代码时，这些业务域的主package,此参数也可 -Dmain.package="org.tis.tools" 的方式传入，且最优先。 -->
 <!-- 说明：desc，元素，业务域描述信息 -->
+<!-- 说明：自动生成的文件清单存放在model目录下 ${model-id}-gen-list.cache -->
 <bizmodel name="账户" id="acct" mainpackage="com.bronsp" >
+
 	<desc>对账户业务域的模型定义，包括：总账、分户账、账户明细、账户变更明细、开销户登记博</desc>
+	
+	<!-- ===================== --><!--
+	通过以下配置指定各种源码生成到的目标工程（即：分布式工程结构）。
+	prjWeb：指定web工程，controller.java，ui相关的源码
+	prjCore：指定模型定义工程，po,vo等，被公用的模型对象代码生成到该工程
+	prjFacade：指定服务接口定义工程，dubbo服务接口定义，接口参数对象生成到该工程
+	prjService：指定服务能力提供工程，*Mapper.java,*.Mapper.xml等，模型的DAO能力代码生成到该工程
+	如果不指定，则所有代码生成在执行所在当前工程（即：单体工程结构）。
+	--><!-- ===================== -->
+	<prjWeb>tools-web-acct</prjWeb>
+	<prjCore>tools-core</prjCore>
+	<prjFacade>tools-facade-acct</prjFacade>
+	<prjService>tools-service-acct</prjService>
+	
+	<!-- 该业务领域(bizmodel)中的模型(model)定义 -->
 	<models>
 		<!-- model -->
 		<!-- model，表示一个模型，定义业务对象的数据结构，系统根据模型生成M-V-C代码，完成数据的读取，插入，更新等基本功能。 -->

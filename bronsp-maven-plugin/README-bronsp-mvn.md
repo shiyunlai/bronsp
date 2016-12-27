@@ -54,6 +54,7 @@
 
 ##	TODO 待增强功能
 ### 待解决
+
 	TODO0、当前最大的问题，生成的代码，不支持分布式工程结构！！！
 	TODO1、清理功能 —— 清理自动生成的代码（完全清理，部分清理）
 	TODO2、设计并实现，dao、biz、controller层的可修改性（解决自动代码修改后，再次生成时，会被覆盖的问题！）
@@ -65,14 +66,20 @@
 	TODO8： 还因该支持向多个工程输出生成源码，如：所生成的源码，分为facade、service两个层次，存放到两个工程中去。
 
 ### 已解决
-	FIXED1、 (解决)如何把FreeMarker模版放在jar包中，使用着无需依赖外部目录？
+
+	FIXED1 如何把FreeMarker模版放在jar包中，使用着无需依赖外部目录？
 
 		见：FreeMarkerUtil中两个init开头的方法；
 
-	FIXED2 (解决)应该把生成源码的功能块重构为不同的生成策略，提升扩展性；
+	FIXED2 应该把生成源码的功能块重构为不同的生成策略，提升扩展性；
 
 		见：ASourceCodeGenerator、IGenModelDefine、gen-daoManager
-
+	
+	FIXED3 生成的代码，支持分布式工程结构
+		
+		见开发分支feature_maven_plugin_4_dispro
+		
+	
 ##	模型定义文件规则说明
 
 *	见 bronsp-maven-plugin/model/model-demo.xml,model-acct.xml

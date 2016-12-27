@@ -2,6 +2,7 @@ package org.bronsp.maven.plugin.utils;
 
 import junit.framework.Assert;
 
+import org.bronsp.maven.plugin.exception.GenDaoMojoException;
 import org.junit.Test;
 
 public class CommonUtilTest {
@@ -42,7 +43,7 @@ public class CommonUtilTest {
 	}
 	
 	@Test
-	public void TestLine2Hump() {
+	public void testLine2Hump() {
 		
 		Assert.assertEquals("",CommonUtil.line2Hump("") ) ;
 		Assert.assertEquals("abcdfr",CommonUtil.line2Hump("abcdfr") ) ;
@@ -52,7 +53,7 @@ public class CommonUtilTest {
 	}
 	
 	@Test
-	public void TestgetProjectPathBySource() {
+	public void testGetProjectPathBySource() {
 		
 		Assert.assertEquals(null,CommonUtil.getProjectPathBySource(null) ) ;
 		Assert.assertEquals("",CommonUtil.getProjectPathBySource("") ) ;
@@ -60,5 +61,14 @@ public class CommonUtilTest {
 		Assert.assertEquals("/Users/megapro/Develop/brons/bronsp/bronsp-maven-plugin/",
 				CommonUtil.getProjectPathBySource("/Users/megapro/Develop/brons/bronsp/bronsp-maven-plugin/src/main/java/org/fone/bronsplus/") ) ;
 		Assert.assertEquals("/",CommonUtil.getProjectPathBySource("/src/") ) ;
+	}
+	
+	@Test
+	public void testReplacePrjNameInMaven() throws GenDaoMojoException{
+		String mavenPrjName = "/Users/megapro/Develop/brons/bronsp/bronsp-maven-plugin/src/main/java" ; 
+		String expected = "/Users/megapro/Develop/brons/bronsp/test-prj/src/main/java" ; 
+		Assert.assertEquals(expected, CommonUtil.replacePrjNameInMaven(mavenPrjName, "test-prj") ); 
+		
+		//TODO 测试抛异常的情况
 	}
 }
