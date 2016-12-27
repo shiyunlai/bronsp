@@ -47,6 +47,27 @@ public class BizModel implements IGenModelDefine{
 	 */
 	@XmlElement(required=false)
 	private String desc ; 
+	
+	/**
+	 * web工程
+	 */
+	@XmlElement(name="prjWeb",required=false)
+	private String prjWeb ; 
+	/**
+	 * 模型定义工程
+	 */
+	@XmlElement(name="prjCore",required=false)
+	private String prjCore ; 
+	/**
+	 * 服务接口定义工程
+	 */
+	@XmlElement(name="prjFacade",required=false)
+	private String prjFacade ; 
+	/**
+	 * 服务能力提供工程
+	 */
+	@XmlElement(name="prjService",required=false)
+	private String prjService ; 
 	 
 	
 	/**
@@ -78,6 +99,23 @@ public class BizModel implements IGenModelDefine{
 	public String getDesc() {
 		return desc;
 	}
+	
+	@XmlTransient
+	public String getPrjWeb() {
+		return prjWeb;
+	}
+	@XmlTransient
+	public String getPrjCore() {
+		return prjCore;
+	}
+	@XmlTransient
+	public String getPrjFacade() {
+		return prjFacade;
+	}
+	@XmlTransient
+	public String getPrjService() {
+		return prjService;
+	}
 
 	@XmlTransient	
 	public List<Model> getModels() {
@@ -108,6 +146,19 @@ public class BizModel implements IGenModelDefine{
 
 	public void setDesc(String desc) {
 		this.desc = desc;
+	}
+	
+	public void setPrjWeb(String prjWeb) {
+		this.prjWeb = prjWeb;
+	}
+	public void setPrjCore(String prjCore) {
+		this.prjCore = prjCore;
+	}
+	public void setPrjFacade(String prjFacade) {
+		this.prjFacade = prjFacade;
+	}
+	public void setPrjService(String prjService) {
+		this.prjService = prjService;
 	}
 
 	public void setModels(List<Model> models) {

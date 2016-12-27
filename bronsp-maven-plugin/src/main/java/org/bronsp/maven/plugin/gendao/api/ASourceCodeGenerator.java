@@ -22,9 +22,9 @@ public abstract class ASourceCodeGenerator<T extends IGenModelDefine> {
 	/**
 	 * 执行具体的生成处理
 	 * 
-	 * @param genModelDef
-	 * @param resourcesDir
-	 * @param sourceDir
+	 * @param genModelDef 业务模型定义
+	 * @param resourcesDir 配置存放路径
+	 * @param sourceDir 源码存放路径
 	 * @return 
 	 * @throws GenDaoMojoException
 	 */

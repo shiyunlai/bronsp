@@ -7,6 +7,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import org.apache.commons.lang.StringUtils;
+import org.bronsp.maven.plugin.exception.GenDaoMojoException;
 
 
 /**
@@ -54,6 +55,51 @@ public class CommonUtil {
 		return packageName.toString() ; 
 	}
 	
+	private static final String MAVEN_PATH_SRC_TAG = "/src/" ;//maven工程的源码路径标志
+	
+	/**
+	 * </br>基于maven工程路径，替换其中的工程名称
+	 * @param mavenPrjName maven工程全路径
+	 * @param replacePrjName 替换为工程名
+	 * @return 替换后的工程全路径 
+	 * </br>如： replacePrjNameInMaven(null,"new-biztrace") </br>抛例外
+	 * </br>如： replacePrjNameInMaven("/User/tis/tools-service-biztrace/src/main",null) </br>抛例外
+	 * </br>如： replacePrjNameInMaven("/User/tis/tools-service-biztrace/GGG/main/java/","new-biztrace") 不是正常maven项目 </br>抛例外
+	 * </br>如： replacePrjNameInMaven("/User/tis/tools-service-biztrace/src/main/java/","new-biztrace") </br>将返回 "/User/tis/new-biztrace/src/main/java/"
+	 * @throws GenDaoMojoException 
+	 */
+	public static String replacePrjNameInMaven(String mavenPrjName, String replacePrjName ) throws GenDaoMojoException {
+		
+		if( StringUtils.isEmpty(replacePrjName) ){
+			throw new GenDaoMojoException("替换工程名不能为空！") ; 
+		}
+		
+		if( StringUtils.isEmpty(mavenPrjName) ){
+			throw new GenDaoMojoException("被替换工程路径不能为空！") ; 
+		}
+		
+		int index = mavenPrjName.indexOf(MAVEN_PATH_SRC_TAG) ; 
+		if( index == -1 ){ 
+			throw new GenDaoMojoException("路径中没有src目录，为非标准maven工程！") ; 
+		}
+		
+		// 截取 /src/ 前半截路径
+		String forwardPath = mavenPrjName.substring(0, index) ;
+		
+		// 取得工程名称 /.../工程名称/src/..../ ，位于 src 前一段路径极为工程名称
+		int indexPrj = forwardPath.lastIndexOf("/");
+		forwardPath = forwardPath.substring(0, indexPrj+1) ;//indexPrj+1 把路径最后的／符号也取得
+
+		// 截取 /src/ 后半截路径
+		String behindPath = mavenPrjName.substring(index, mavenPrjName.length()) ;
+		
+		// 替换工程名之后的全路径
+		String newPath = forwardPath + replacePrjName + behindPath  ;
+		
+		return newPath ; 
+		
+	}
+
 	/**
 	 * </br>把包名转换为对应的目录字符串 </br>如： com.abc.kkk --> com/abc/kkk/ </br>com -->
 	 * com/
@@ -187,5 +233,5 @@ public class CommonUtil {
 		}
 
 	}
-
+	
 }

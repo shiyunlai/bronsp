@@ -9,12 +9,13 @@ import java.util.Map;
 
 import org.bronsp.maven.plugin.exception.GenDaoMojoException;
 import org.bronsp.maven.plugin.gendao.api.ASourceCodeGenerator;
-import org.bronsp.maven.plugin.gendao.impl.BizGenerator;
+import org.bronsp.maven.plugin.gendao.impl.ServiceGenerator;
 import org.bronsp.maven.plugin.gendao.impl.ControllerGenerator;
 import org.bronsp.maven.plugin.gendao.impl.DDLGenerator;
 import org.bronsp.maven.plugin.gendao.impl.MapperJavaGenerator;
 import org.bronsp.maven.plugin.gendao.impl.MapperXmlGenerator;
 import org.bronsp.maven.plugin.gendao.impl.POGenerator;
+import org.bronsp.maven.plugin.gendao.impl.RServiceGenerator;
 import org.bronsp.maven.plugin.utils.CommonUtil;
 import org.bronsp.maven.plugin.utils.FreeMarkerUtil;
 
@@ -115,8 +116,13 @@ public class GenDAOManager {
 	 */
 	public void genBiz(List<BizModel> bizModelList, String projectPath, String sourcePath) throws GenDaoMojoException {
 		
-		ASourceCodeGenerator<BizModel> generator = new BizGenerator() ; 
-		generator.genSourceCode(bizModelList, projectPath, sourcePath);		
+		//生成 Service 代码
+		ASourceCodeGenerator<BizModel> generator = new ServiceGenerator() ; 
+		generator.genSourceCode(bizModelList, projectPath, sourcePath);
+		
+		//生成 Remote Service 代码
+		ASourceCodeGenerator<BizModel> generatorr = new RServiceGenerator() ; 
+		generatorr.genSourceCode(bizModelList, projectPath, sourcePath);
 	}
 	
 	
