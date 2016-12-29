@@ -3,6 +3,7 @@
  */
 package org.bronsp.maven.plugin.utils;
 
+import java.io.File;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -55,7 +56,7 @@ public class CommonUtil {
 		return packageName.toString() ; 
 	}
 	
-	private static final String MAVEN_PATH_SRC_TAG = "/src/" ;//maven工程的源码路径标志
+	private static final String MAVEN_PATH_SRC_TAG = File.separator+"src"+File.separator ;//maven工程的源码路径标志
 	
 	/**
 	 * </br>基于maven工程路径，替换其中的工程名称
@@ -87,7 +88,7 @@ public class CommonUtil {
 		String forwardPath = mavenPrjName.substring(0, index) ;
 		
 		// 取得工程名称 /.../工程名称/src/..../ ，位于 src 前一段路径极为工程名称
-		int indexPrj = forwardPath.lastIndexOf("/");
+		int indexPrj = forwardPath.lastIndexOf(File.separator);
 		forwardPath = forwardPath.substring(0, indexPrj+1) ;//indexPrj+1 把路径最后的／符号也取得
 
 		// 截取 /src/ 后半截路径
