@@ -110,7 +110,7 @@ public class CommonUtil {
 	 */
 	public static String package2Path(String packageName ) {
 		
-		return packageName.replace(".", "/") + "/"; 
+		return packageName.replace(".", File.separator) + File.separator; 
 	}
 
 	private static Pattern line1Pattern = Pattern.compile("_(\\w)");  
@@ -224,9 +224,9 @@ public class CommonUtil {
 			return sourcePath;
 		}
 
-		if (sourcePath.contains("src/")) {
+		if (sourcePath.contains("src"+File.separator)) {
 
-			return sourcePath.substring(0, sourcePath.indexOf("src/"));// 路径中有src，则截取src之前的部分返回
+			return sourcePath.substring(0, sourcePath.indexOf("src"+File.separator));// 路径中有src，则截取src之前的部分返回
 
 		} else {
 
